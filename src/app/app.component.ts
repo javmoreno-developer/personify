@@ -12,6 +12,6 @@ export class AppComponent {
     { title: 'home', url: '/home', icon: 'home' },
     
   ];
-  public labels = [''];
+  //public labels = [''];
   constructor() {}
 }
