@@ -1,0 +1,7 @@
+{
+  "name": "personify",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
