@@ -9,7 +9,7 @@ export class AppComponent {
     { title: 'Person', url: '/person', icon: 'person' },
     { title: 'Task', url: '/task', icon: 'clipboard' },
     { title: 'Assign', url: '/assign', icon: 'bookmark' },
-    { title: 'home', url: '/home', icon: 'home' },
+    { title: 'Home', url: '/home', icon: 'home' },
     
   ];
   //public labels = [''];
