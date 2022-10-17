@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Person } from 'src/app/models/person';
+
 
 @Component({
   selector: 'app-person-card',
@@ -10,10 +11,11 @@ export class PersonCardComponent implements OnInit {
 
   //paso de datos al componente person-card
   private _dataPerson : Person;
-  
+   
   @Input("dataPerson") set dataPerson(n : Person) {
     this._dataPerson = n;
   }
+
 
   get dataPerson() {
     return this._dataPerson;
@@ -24,4 +26,14 @@ export class PersonCardComponent implements OnInit {
 
   ngOnInit() {}
 
+  @Output() onEdit = new EventEmitter();
+  @Output() onDelete = new EventEmitter();
+
+  promptEdit() {
+    this.onEdit.next(this._dataPerson);
+  }
+
+  promptDelete() {
+    this.onDelete.next(this._dataPerson);
+  }
 }

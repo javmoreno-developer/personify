@@ -1,36 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>person</ion-title>
+    <ion-title>Listado de personas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <h1>Listado de personas</h1>
 
-
-  <!-- Primera linea -->
-  <ion-list>
-    <ion-item lines="none">
-      <ion-avatar slot="start"></ion-avatar>
-      
-      <ion-label>
-        Name - Nickname - Age
-      </ion-label>
-      <ion-label>
-        Description
-      </ion-label>
-    </ion-item>
-  </ion-list>
-
+  
+  <!-- Add person -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createPerson()">
+      <ion-icon name="person-add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
   <!-- Resto de la lista -->
-  <ion-list>
-    <app-person-card *ngFor="let person of items" [dataPerson]="person"></app-person-card>
-  </ion-list>
-
-  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)" [disabled]="numTimesLeft <= 0">
-    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
+  <ion-accordion-group>
+    <app-person-card *ngFor="let person of list" [dataPerson]="person" (onEdit)="editPerson($event)" (onDelete)="deletePerson($event)"></app-person-card>
+  </ion-accordion-group>
 
 </ion-content>

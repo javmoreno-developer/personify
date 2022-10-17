@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Datos de la persona</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss(null)" color="danger">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+    <ion-item>
+      <ion-label position="floating">
+        Nombre
+      </ion-label>
+      <ion-input type="text" placeholder="Introduce tu nombre" formControlName="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Description
+      </ion-label>
+      <ion-input type="text" placeholder="Introduce tus apellidos" formControlName="description"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Nickname
+      </ion-label>
+      <ion-input type="text" placeholder="Introduce tu apodo" formControlName="nickname"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        Edad
+      </ion-label>
+      <ion-input type="number" placeholder="Introduce tu edad" formControlName="age"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">
+        URL
+      </ion-label>
+      <ion-input type="text" placeholder="Introduce tu url" formControlName="url"></ion-input>
+    </ion-item>
+    <ion-grid>
+
+      <ion-row>
+        <ion-col sizeMd="5"></ion-col>
+        <ion-col sizeMd="2">
+          <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+        </ion-col>
+        <ion-col sizeMd="5"></ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+</ion-content>
