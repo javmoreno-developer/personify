@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>task</ion-title>
+    <ion-title>Listado de task</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+<!-- Add person -->
+<ion-fab vertical="bottom" horizontal="end" slot="fixed">
+  <ion-fab-button (click)="onNewTask()">
+    <ion-icon name="person-add-outline"></ion-icon>
+  </ion-fab-button>
+</ion-fab>
 
+<!-- Listado -->
+<ion-accordion-group>
+  <app-task-card *ngFor="let task of list" [task]="task" (onEdit)="onEditTask($event)" (onDelete)="onDeleteTask($event)"></app-task-card>
+</ion-accordion-group>
 </ion-content>

@@ -1,0 +1,33 @@
+<ion-accordion value="{{task.id}}">
+  <ion-item slot="header" color="light">
+    <ion-avatar slot="start">
+      <img alt="Silhouette of a person's head" src="{{task.url}}" />
+    </ion-avatar>
+    <ion-label>
+     <ion-text>{{task.name}}</ion-text>
+    </ion-label>
+    
+
+  </ion-item>
+  <div class="ion-padding" slot="content">
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeMd="5" size="12">
+          <ion-text>Descripcion: {{task.description}}</ion-text>
+          <br><br>
+          <ion-text>Date: {{task.date}} </ion-text> 
+        </ion-col>
+       
+        <ion-col sizeMd="4" size="12" offset-md="3">
+          <div id="btn_hidden">
+            <ion-button (click)="onEditTask()">Editar</ion-button>
+            <ion-button  (click)="onDeleteTask()" color="danger">Borrar</ion-button>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-accordion>
+
+
+
