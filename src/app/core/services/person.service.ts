@@ -55,6 +55,12 @@ selectById(param: number) {
   })[0].url
 }
 
+getPersonById(param: number) {
+  return this.listado.filter((x)=> {
+    return x.id == param
+  })[0];
+}
+
 getAllPeople() {
   return this.listado;
 }

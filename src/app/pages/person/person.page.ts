@@ -96,7 +96,6 @@ export class PersonPage implements OnInit {
           role: 'confirm',
           handler: () => {
             let r = this.assignService.getAllDateById(person.id);
-            console.log(r.length);
             if(r.length == 0) {           
               this.personService.deletePerson(person.id);
             } else {

@@ -67,13 +67,9 @@ export class AssignPage implements OnInit {
       if(result && result.data){
         switch(result.data.mode){
           case 'New':
-            //this.personService.addPerson(result.data.person);
-            console.log("new");
-            console.log(result.data);
             this.assignSvc.createAssign(result.data.assign);
             break;
           case 'Edit':
-            console.log("edit");
             this.assignSvc.updateAssign(result.data.assign);
             this.lista = this.assignSvc.getAllAssigns();
           

@@ -20,9 +20,9 @@
       </ion-modal>
 
 
-    
+    &nbsp;
 
-    <!-- Select Personas y tareas -->
+    <!-- Select Personas y tareas 
 
     <ion-list>
       <ion-item>
@@ -43,10 +43,19 @@
     <div *ngIf="!datesEmpty">
       <ion-text  class="ion-text-center">Tareas asignadas: </ion-text>
       <app-date-list  *ngFor="let item of datesPerson" [person]="item"></app-date-list>
-    </div> 
+    </div>  -->
 
+    <app-person-selectable formControlName="personId"></app-person-selectable>
+   
+    <ion-list>
+      <ion-item>
+        <ion-select interface="popover" placeholder="Selecciona una tarea" formControlName="taskId">
+          <ion-select-option *ngFor="let task of allTask" [value]="task.id" >{{task.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  
     
-
     <ion-grid>
       <ion-row>
         <ion-col sizeMd="5"></ion-col>

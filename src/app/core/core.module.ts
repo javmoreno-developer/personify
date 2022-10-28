@@ -14,6 +14,7 @@ import { PersonSelectableComponent } from './components/person-selectable/person
 
 
 
+
 @NgModule({
   declarations: [
     PersonCardComponent,
@@ -24,6 +25,7 @@ import { PersonSelectableComponent } from './components/person-selectable/person
     TaskDetailComponent,
     DateListComponent,
     PersonSelectableComponent,
+    
     
   ],
   imports: [
@@ -45,6 +47,7 @@ import { PersonSelectableComponent } from './components/person-selectable/person
     ReactiveFormsModule,
     DateListComponent,
     PersonSelectableComponent,
+    
   ],
 })
 export class CoreModule { }

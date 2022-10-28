@@ -15,7 +15,7 @@ export class DateListComponent implements OnInit {
 
   @Input("person") set person(n: Assignment) {
     this._person = n;
-    console.log(this._person);
+
   } 
 
   get person() {

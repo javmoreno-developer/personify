@@ -1,3 +1,29 @@
-<p>
-  person-selectable works!
-</p>
+<ion-accordion-group [multiple]="true" #accordion>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ng-container *ngIf="selectedPerson!=null">
+        <ion-avatar class="person">
+          <img *ngIf="!selectedPerson?.url" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img *ngIf="selectedPerson?.url" alt="Person picture" [src]="selectedPerson?.url" />
+        </ion-avatar>
+        &nbsp;
+        &nbsp;
+        <ion-label>{{selectedPerson?.nickname}}, {{selectedPerson?.name}}</ion-label>
+      </ng-container>
+      <ion-label *ngIf="!selectedPerson">Selecciona una persona</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-list>
+        <ion-item *ngFor="let person of getPeople()" button detail  (click)="onPersonClicked(person, accordion)">
+          <ion-avatar class="person">
+            <img *ngIf="!person.url" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="person.url" alt="Person picture" [src]="person.url" />
+          </ion-avatar>
+          &nbsp;
+          &nbsp;
+          <ion-label>{{person.nickname}}, {{person.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>

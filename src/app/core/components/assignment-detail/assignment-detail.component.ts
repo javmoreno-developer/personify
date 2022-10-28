@@ -46,7 +46,7 @@ export class AssignmentDetailComponent implements OnInit, AfterViewInit {
   chargePersonDate(param) {
   
     this.datesPerson = this.assignService.getAllDateById(parseInt(param.target.value));
-    console.log(this.datesPerson);
+
     if(this.datesPerson.length > 0) {
       this.datesEmpty = false; 
     }
@@ -81,9 +81,7 @@ export class AssignmentDetailComponent implements OnInit, AfterViewInit {
     
     this.datesPerson = this.assignService.getAllDateById(parseInt(this.form.value.personId));
 
-    console.log(this.form.value.dateTime)
-    console.log(this.form.value);
-    console.log(this.datesPerson);
+
     let valido = true;
     if(this.datesPerson) {
       this.datesPerson.forEach((x)=> {
@@ -92,7 +90,7 @@ export class AssignmentDetailComponent implements OnInit, AfterViewInit {
         }
       });
 
-      console.log(valido);
+
       if(valido) {
         this.modal.dismiss({assign: this.form.value, mode:this.mode}, 'ok');
       } else {

@@ -30,7 +30,7 @@ export class AssignmentService {
   }
 
   createAssign(param) {
-    console.log(param);
+
     param.id = this.id;
     this.id;
     param.createdAt = this.momentjs().toISOString();

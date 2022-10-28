@@ -23,6 +23,12 @@ export class TaskService {
     })[0].url
   }
 
+  getTaskById(param: number) {
+    return this.listado.filter((x) => {
+      return x.id == param;
+    })[0];
+  }
+
   addTask(param : Task) {
     this.lastId = this.listado.length + 1;
     param.id = this.lastId;
