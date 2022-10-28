@@ -11,6 +11,7 @@ import { TaskCardComponent } from './components/task-card/task-card.component';
 import { TaskDetailComponent } from './components/task-detail/task-detail.component';
 import { DateListComponent } from './components/date-list/date-list.component';
 import { PersonSelectableComponent } from './components/person-selectable/person-selectable.component';
+import { TaskSelectableComponent } from './components/task-selectable/task-selectable.component';
 
 
 
@@ -25,7 +26,7 @@ import { PersonSelectableComponent } from './components/person-selectable/person
     TaskDetailComponent,
     DateListComponent,
     PersonSelectableComponent,
-    
+    TaskSelectableComponent,
     
   ],
   imports: [
@@ -47,6 +48,7 @@ import { PersonSelectableComponent } from './components/person-selectable/person
     ReactiveFormsModule,
     DateListComponent,
     PersonSelectableComponent,
+    TaskSelectableComponent,
     
   ],
 })

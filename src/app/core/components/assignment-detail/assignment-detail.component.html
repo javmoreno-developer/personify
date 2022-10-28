@@ -47,15 +47,9 @@
 
     <app-person-selectable formControlName="personId"></app-person-selectable>
    
-    <ion-list>
-      <ion-item>
-        <ion-select interface="popover" placeholder="Selecciona una tarea" formControlName="taskId">
-          <ion-select-option *ngFor="let task of allTask" [value]="task.id" >{{task.name}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+   <app-task-selectable formControlName="taskId"></app-task-selectable>
   
-    
+
     <ion-grid>
       <ion-row>
         <ion-col sizeMd="5"></ion-col>

@@ -1,0 +1,25 @@
+<ion-accordion-group [multiple]="true" #accordion>
+  <ion-accordion value="first">
+    <ion-item slot="header" color="light">
+      <ng-container *ngIf="selectedTask!=null">
+        <ion-avatar class="person">
+          <img *ngIf="!selectedTask?.url" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+          <img *ngIf="selectedTask?.url" alt="Person picture" [src]="selectedTask?.url" />
+        </ion-avatar>
+        <ion-label>{{selectedTask?.name}}</ion-label>
+      </ng-container>
+      <ion-label *ngIf="!selectedTask">Selecciona una persona</ion-label>
+    </ion-item>
+    <div class="ion-padding" slot="content">
+      <ion-list>
+        <ion-item *ngFor="let task of getPeople()" button detail  (click)="onPersonClicked(task, accordion)">
+          <ion-avatar class="person">
+            <img *ngIf="!task.url" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+            <img *ngIf="task.url" alt="Person picture" [src]="task.url" />
+          </ion-avatar>
+          <ion-label>{{task.name}}</ion-label>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-accordion>
+</ion-accordion-group>
