@@ -30,6 +30,10 @@ export class PersonService {
 
   }
 
+  getNameById(param) {
+    return this.listado.filter(x => x.name == param);
+  }
+
   deletePerson(param: number) {
     this.listado = this.listado.filter((x) => {
       return x.id != param;
@@ -43,6 +47,12 @@ addPerson(param) {
   param.id = this.lastId++;
   this.listado.unshift(param);
 
+}
+
+selectById(param: number) {
+  return this.listado.filter((x)=> {
+    return x.id == param
+  })[0].url
 }
 
 getAllPeople() {

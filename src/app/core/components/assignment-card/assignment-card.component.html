@@ -1,0 +1,35 @@
+<ion-accordion value="{{assign.id}}">
+  <ion-item slot="header" color="light">
+    <ion-avatar>
+      <img alt="Silhouette of a person's head" src="{{getPersonUrl()}}" />
+    </ion-avatar>
+
+      <ion-icon name="chevron-forward-outline"></ion-icon>
+
+    <ion-avatar>
+      <img alt="Silhouette of a person's head" src="{{getTaskUrl()}}" />
+    </ion-avatar>
+    
+    <ion-label slot="end">
+      <ion-text>
+        {{assign.dateTime | date: 'short'}}
+      </ion-text>
+    </ion-label>
+  </ion-item>
+  <div class="ion-padding" slot="content">
+    <ion-grid>
+      <ion-row>
+        <ion-col></ion-col>
+        <ion-col size="6" id="column_hidden">
+          <ion-text>
+            {{assign.createdAt}}
+          </ion-text>
+          <ion-button (click)="promptEdit()">Editar</ion-button>
+          <ion-button color="danger" (click)="promptDelete()">Borrar</ion-button>
+        </ion-col>
+        <ion-col></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-accordion>
+

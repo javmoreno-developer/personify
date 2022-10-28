@@ -1,0 +1,63 @@
+
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Datos de la asignacion</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="onDismiss(null)" color="danger">Cerrar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
+
+      <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+      <ion-modal [keepContentsMounted]="true">
+        <ng-template>
+          <ion-datetime color="rose" #dateTime  id="datetime" (ionChange)="onChangeDate($event)" [showDefaultButtons]="true" doneText="All set" cancelText="Never mind"></ion-datetime>
+        </ng-template>
+      </ion-modal>
+
+
+    
+
+    <!-- Select Personas y tareas -->
+
+    <ion-list>
+      <ion-item>
+        <ion-select interface="popover" placeholder="Selecciona una persona" formControlName="personId" (ionChange)="chargePersonDate($event)">
+          <ion-select-option *ngFor="let person of allPerson" [value]="person.id">{{person.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  
+    <ion-list>
+      <ion-item>
+        <ion-select interface="popover" placeholder="Selecciona una tarea" formControlName="taskId">
+          <ion-select-option *ngFor="let task of allTask" [value]="task.id" >{{task.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  
+    <div *ngIf="!datesEmpty">
+      <ion-text  class="ion-text-center">Tareas asignadas: </ion-text>
+      <app-date-list  *ngFor="let item of datesPerson" [person]="item"></app-date-list>
+    </div> 
+
+    
+
+    <ion-grid>
+      <ion-row>
+        <ion-col sizeMd="5"></ion-col>
+        <ion-col sizeMd="2">
+          <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+        </ion-col>
+        <ion-col sizeMd="5"></ion-col>
+      </ion-row>
+
+    </ion-grid>
+  </form>
+
+ 
+</ion-content>

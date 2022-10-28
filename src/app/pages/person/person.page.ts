@@ -1,10 +1,11 @@
 import { ChangeDetectorRef, Component, Input, OnInit, ViewChild } from '@angular/core';
-import { AlertController, ModalController } from '@ionic/angular';
-import { Person } from 'src/app/models/person';
-import { PersonService } from 'src/app/services/person.service';
+import { AlertController, ModalController, ToastController } from '@ionic/angular';
+import { Person } from 'src/app/core/models/person';
+
 //import { OverlayEventDetail } from '@ionic/core/components';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { PersonDetailComponent } from '../components/person-detail/person-detail.component';
+import { PersonDetailComponent } from '../../core/components/person-detail/person-detail.component';
+import { AssignmentService, PersonService } from 'src/app/core/services';
 
 
 @Component({
@@ -26,7 +27,7 @@ export class PersonPage implements OnInit {
   
   nameEdit : string;
 
-  constructor(private personService : PersonService,private fb : FormBuilder, private modal:ModalController,private cdr:ChangeDetectorRef, private alert:AlertController) {}
+  constructor(private personService : PersonService,private fb : FormBuilder, private modal:ModalController,private assignService: AssignmentService, private alert:AlertController,private toastController : ToastController) {}
 
 
   
@@ -55,6 +56,7 @@ export class PersonPage implements OnInit {
       if(result && result.data){
         switch(result.data.mode){
           case 'New':
+           
             this.personService.addPerson(result.data.person);
             break;
           case 'Edit':
@@ -93,7 +95,13 @@ export class PersonPage implements OnInit {
           text: 'Borrar',
           role: 'confirm',
           handler: () => {
-            this.personService.deletePerson(person.id);
+            let r = this.assignService.getAllDateById(person.id);
+            console.log(r.length);
+            if(r.length == 0) {           
+              this.personService.deletePerson(person.id);
+            } else {
+              this.presentToast("top");
+            }
             this.list = this.personService.getAllPeople();
           },
         },
@@ -105,6 +113,16 @@ export class PersonPage implements OnInit {
     const { role } = await alert.onDidDismiss();
   }
 
-  
+ 
+  async presentToast(position: 'top' | 'middle' | 'bottom') {
+    const toast = await this.toastController.create({
+      message: 'Esta persona tiene asignadas tareas,no puedes borrarla',
+      duration: 2500,
+      position: position
+    });
+
+    await toast.present();
+  }
+
 
 }

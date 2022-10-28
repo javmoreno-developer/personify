@@ -25,4 +25,33 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
+:root {
+    --ion-color-rose: #8c9eff;
+    --ion-color-rose-rgb: #8c9eff;
+    --ion-color-rose-contrast: #ffffff;
+    --ion-color-rose-contrast-rgb: 255, 255, 255;
+    --ion-color-rose-shade: #6472c1;
+    --ion-color-rose-tint: #8c9eff;
+  
+    //--ion-text-color: #881337;
+    
+  
+    
+  }
+  
+  .ion-color-rose {
+    --ion-color-base: var(--ion-color-rose);
+    --ion-color-base-rgb: var(--ion-color-rose-rgb);
+    --ion-color-contrast: var(--ion-color-rose-contrast);
+    --ion-color-contrast-rgb: var(--ion-color-rose-contrast-rgb);
+    --ion-color-shade: var(--ion-color-rose-shade);
+    --ion-color-tint: var(--ion-color-rose-tint);
+  }
+  
+  ion-datetime {
+    --background: #bfc7f7;
+    //--background-rgb: 255, 241, 242;
+  
+    border-radius: 16px;
+    box-shadow: rgba(var(--ion-color-rose-rgb), 0.3) 0px 10px 15px -3px;
+  }

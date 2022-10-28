@@ -1,9 +1,19 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>assign</ion-title>
+    <ion-title>Assign</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-accordion-group>
+    <app-assignment-card *ngFor="let item of lista" [assign]="item" (onDelete)="onDeleteAssign($event)" (onEdit)="onEditAssign($event)"></app-assignment-card>
+  </ion-accordion-group>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="onCreate()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

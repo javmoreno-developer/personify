@@ -17,6 +17,12 @@ export class TaskService {
     return this.listado;
   }
 
+  selectById(param: number) {
+    return this.listado.filter((x)=> {
+      return x.id == param
+    })[0].url
+  }
+
   addTask(param : Task) {
     this.lastId = this.listado.length + 1;
     param.id = this.lastId;
@@ -29,6 +35,7 @@ export class TaskService {
     local[0].description = param.description;
     local[0].name = param.name;
     local[0].url = param.url;
+    
   }
 
   deleteTask(id : number) {

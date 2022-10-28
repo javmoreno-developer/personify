@@ -1,23 +1,13 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { IonicModule } from '@ionic/angular';
-
 import { TaskPageRoutingModule } from './task-routing.module';
-
 import { TaskPage } from './task.page';
-import { TaskCardComponent } from '../components/task-card/task-card.component';
-import { TaskDetailComponent } from '../components/task-detail/task-detail.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ReactiveFormsModule,
+    CoreModule,
     TaskPageRoutingModule
   ],
-  declarations: [TaskPage,TaskCardComponent,TaskDetailComponent]
+  declarations: [TaskPage]
 })
 export class TaskPageModule {}

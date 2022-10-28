@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 import { IonicModule } from '@ionic/angular';
 
 import { PersonPageRoutingModule } from './person-routing.module';
 
 import { PersonPage } from './person.page';
-import { PersonCardComponent } from 'src/app/pages/components/person-card/person-card.component';
-import { PersonDetailComponent } from '../components/person-detail/person-detail.component';
+
+
+import { CoreModule } from 'src/app/core/core.module';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ReactiveFormsModule,
+   
+    CoreModule,
+    
     PersonPageRoutingModule
   ],
-  declarations: [PersonPage,PersonCardComponent,PersonDetailComponent]
+  declarations: [PersonPage]
 })
 export class PersonPageModule {}
