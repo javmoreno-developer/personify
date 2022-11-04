@@ -38,9 +38,7 @@ export class AssignmentDetailComponent implements OnInit, AfterViewInit {
       this.form.controls.personId.setValue(this.personIdSelect);
       this.form.controls.taskId.setValue(this.taskIdSelect);
       this.mode = "Edit";
-    } else {
-      this.form.controls.dateTime.setValue(this.momentjs().toISOString())
-    }
+    } 
   }
 
   chargePersonDate(param) {
@@ -70,9 +68,7 @@ export class AssignmentDetailComponent implements OnInit, AfterViewInit {
     }
   }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
    onChangeDate(event) {
     this.form.controls.dateTime.setValue(event.detail.value);

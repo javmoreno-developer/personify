@@ -15,8 +15,10 @@ export class TaskPage implements OnInit {
   list: Task[];
   constructor(private taskService : TaskService,private modal : ModalController,private alert:AlertController) { }
 
-  ngOnInit() {
-    this.list = this.taskService.getAllTask();
+  ngOnInit() {}
+
+  getTask() {
+    return this.taskService._task$;
   }
 
   onNewTask() {

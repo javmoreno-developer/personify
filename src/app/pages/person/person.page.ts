@@ -33,7 +33,12 @@ export class PersonPage implements OnInit {
   
 
   ngOnInit() {
-   this.list = this.personService.getAllPeople();
+   
+  }
+
+  getPeople() {
+    //return this.personService.getAllPeople();
+    return this.personService._people$;
   }
 
   createPerson() {

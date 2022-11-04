@@ -12,6 +12,7 @@ import { TaskDetailComponent } from './components/task-detail/task-detail.compon
 import { DateListComponent } from './components/date-list/date-list.component';
 import { PersonSelectableComponent } from './components/person-selectable/person-selectable.component';
 import { TaskSelectableComponent } from './components/task-selectable/task-selectable.component';
+import { DateTimeSelectableComponent } from './components/date-time-selectable/date-time-selectable.component';
 
 
 
@@ -27,7 +28,8 @@ import { TaskSelectableComponent } from './components/task-selectable/task-selec
     DateListComponent,
     PersonSelectableComponent,
     TaskSelectableComponent,
-    
+    DateTimeSelectableComponent,
+      
   ],
   imports: [
     CommonModule,
@@ -49,6 +51,7 @@ import { TaskSelectableComponent } from './components/task-selectable/task-selec
     DateListComponent,
     PersonSelectableComponent,
     TaskSelectableComponent,
+    DateTimeSelectableComponent,
     
   ],
 })

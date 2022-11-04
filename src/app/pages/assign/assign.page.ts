@@ -12,15 +12,17 @@ import { AssignmentDetailComponent } from '../../core/components/assignment-deta
 export class AssignPage implements OnInit {
 
   lista : Assignment[];
-  constructor( private assignSvc: AssignmentService,private alert:AlertController,private modal:ModalController) {
-    this.lista = this.assignSvc.getAllAssigns();
-   }
+  constructor( private assignSvc: AssignmentService,private alert:AlertController,private modal:ModalController) {}
 
   ngOnInit() {
   }
 
   onDeleteAssign(event) {
     this.onDeleteAlert(event);
+  }
+
+  getAssign() {
+    return this.assignSvc._assign$;
   }
 
   async onDeleteAlert(param){

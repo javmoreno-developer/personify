@@ -11,6 +11,9 @@
 <ion-content class="ion-padding">
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
 
+    
+    <app-date-time-selectable formControlName="dateTime"></app-date-time-selectable>
+  <!--
       <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
       <ion-modal [keepContentsMounted]="true">
@@ -19,8 +22,8 @@
         </ng-template>
       </ion-modal>
 
+    -->
 
-    &nbsp;
 
     <!-- Select Personas y tareas 
 
@@ -61,6 +64,7 @@
 
     </ion-grid>
   </form>
+
 
  
 </ion-content>

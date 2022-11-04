@@ -7,7 +7,7 @@
 <ion-content>
 
   <ion-accordion-group>
-    <app-assignment-card *ngFor="let item of lista" [assign]="item" (onDelete)="onDeleteAssign($event)" (onEdit)="onEditAssign($event)"></app-assignment-card>
+    <app-assignment-card *ngFor="let item of (getAssign() | async)" [assign]="item" (onDelete)="onDeleteAssign($event)" (onEdit)="onEditAssign($event)"></app-assignment-card>
   </ion-accordion-group>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed">

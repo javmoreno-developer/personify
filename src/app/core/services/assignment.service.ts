@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Assignment } from '../models/assignment'
 import * as moment from 'moment';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,8 @@ export class AssignmentService {
 
   listado: Assignment[];
   id: number;
+  private _assignSubject : BehaviorSubject<Assignment[]>;
+  public _assign$;
 
   momentjs:any = moment;
 
@@ -27,14 +30,16 @@ export class AssignmentService {
     this.listado = this.listado.filter((x)=> {
       return x.id != param;
     });
+    this._assignSubject.next(this.listado);
   }
 
   createAssign(param) {
 
     param.id = this.id;
-    this.id;
+    this.id++;
     param.createdAt = this.momentjs().toISOString();
     this.listado.push(param);
+    this._assignSubject.next(this.listado);
   }
   updateAssign(param) {
  
@@ -45,6 +50,7 @@ export class AssignmentService {
     local[0].dateTime = param.dateTime;
     local[0].personId = param.personId;
     local[0].taskId = param.taskId;
+    this._assignSubject.next(this.listado);
   }
 
   getAllDateById(param : number) : any[] { 
@@ -81,5 +87,8 @@ export class AssignmentService {
         dateTime: this.momentjs().subtract("days",5).toISOString(),
       },
     ]
+
+    this._assignSubject = new BehaviorSubject(this.listado);
+    this._assign$ = this._assignSubject.asObservable();
   }
 }

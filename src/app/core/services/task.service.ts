@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Task } from '../models/task';
 
 @Injectable({
@@ -8,6 +9,8 @@ export class TaskService {
 
   listado : Task[];
   lastId: number = 0;
+  private _taskSubject: BehaviorSubject<Task[]>;
+  public _task$;
 
   constructor() { 
     this.init();
@@ -33,6 +36,7 @@ export class TaskService {
     this.lastId = this.listado.length + 1;
     param.id = this.lastId;
     this.listado.unshift(param);
+    this._taskSubject.next(this.listado);
   }
 
   updateTask(param : Task) {
@@ -41,11 +45,12 @@ export class TaskService {
     local[0].description = param.description;
     local[0].name = param.name;
     local[0].url = param.url;
-    
+    this._taskSubject.next(this.listado);
   }
 
   deleteTask(id : number) {
     this.listado = this.listado.filter(x => x.id != id );
+    this._taskSubject.next(this.listado);
   }
   init() {
     this.listado = [
@@ -212,5 +217,7 @@ export class TaskService {
         },
         
       ]
+      this._taskSubject = new BehaviorSubject(this.listado);
+      this._task$ = this._taskSubject.asObservable();
   }
 }

@@ -16,7 +16,7 @@
 
   <!-- Resto de la lista -->
   <ion-accordion-group>
-    <app-person-card *ngFor="let person of list" [dataPerson]="person" (onEdit)="editPerson($event)" (onDelete)="deletePerson($event)"></app-person-card>
+    <app-person-card *ngFor="let person of (getPeople() | async)" [dataPerson]="person" (onEdit)="editPerson($event)" (onDelete)="deletePerson($event)"></app-person-card>
   </ion-accordion-group>
 
 </ion-content>

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Person } from '../models/person';
 
 
@@ -11,6 +12,8 @@ import { Person } from '../models/person';
 export class PersonService {
   listado: Person[];
   lastId: number = 51;
+  private _peopleSubject:BehaviorSubject<Person[]>;
+  public _people$;
 
   constructor() {
     this.init();
@@ -27,6 +30,7 @@ export class PersonService {
     registro[0].nickname = param.nickname;
     registro[0].url = param.url;
 
+    this._peopleSubject.next(this.listado);
 
   }
 
@@ -38,6 +42,7 @@ export class PersonService {
     this.listado = this.listado.filter((x) => {
       return x.id != param;
     });
+    this._peopleSubject.next(this.listado);
   }
 
  
@@ -46,7 +51,7 @@ export class PersonService {
 addPerson(param) {
   param.id = this.lastId++;
   this.listado.unshift(param);
-
+  this._peopleSubject.next(this.listado);
 }
 
 selectById(param: number) {
@@ -468,6 +473,9 @@ init() {
       url: "https://picsum.photos/id/288/200/300"
     }
   ]
+
+  this._peopleSubject = new BehaviorSubject(this.listado);
+  this._people$ = this._peopleSubject.asObservable();
 
   return this.listado;
 }
