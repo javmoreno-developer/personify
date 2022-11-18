@@ -1,0 +1,60 @@
+{
+    "btn": {
+        "modify": "modify",
+        "add": "add",
+        "close": "Close",
+        "reset": "reset",
+        "idiom": "Change the idiom"
+    },
+    "modal_delete": {
+        "header": "Are you sure you want to delete this person?",
+        "cancell": "Cancell",
+        "acept": "Accept",
+        "exception": "This person has assigns,you cant delete",
+        "task_header": "Are you sure you want to delete the task?",
+        "assign_header": "Are you sure you want to delete the assign?"
+    },
+    
+    
+    "crud": {
+        "edit": "edit",
+        "create" : "create",
+        "delete": "delete",
+        "update": "update"
+    },
+    "home": {
+        "title": "Personify,your app",
+        "intro": "Welcome to Personify"
+    },
+    "person": {
+        "title": "Person list",
+        "nickName": "Nickname:",
+        "desc": "Description:",
+        "age": "Age:",
+        "dataPerson": "Person date",
+        "name": "Name: ",
+        "URL": "URL: "
+    },
+    "sidemenu": {
+        "Person": "Persons",
+        "Task": "Task",
+        "Assign": "Assigns",
+        "Home": "Home"
+    },
+    "task": {
+        "title": "Task list",
+        "desc": "Description:",
+        "date": "Date:",
+        "taskData": "Task date",
+        "name": "Name: ",
+        "URL": "URL: "
+    },
+    "assign" : {
+        "title": "Assign list",
+        "assignData": "Assign data",
+        "person_selectable_title": "Select a person",
+        "task_selectable_title": "Select a task",
+        "date_selectable_title": "Select a hour"
+    }
+
+}

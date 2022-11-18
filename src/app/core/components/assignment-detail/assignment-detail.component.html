@@ -2,9 +2,9 @@
 
 <ion-header>
   <ion-toolbar>
-    <ion-title>Datos de la asignacion</ion-title>
+    <ion-title>{{"assign.assignData" | translate}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="onDismiss(null)" color="danger">Cerrar</ion-button>
+      <ion-button (click)="onDismiss(null)" color="danger">{{"btn.close" | translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -57,7 +57,7 @@
       <ion-row>
         <ion-col sizeMd="5"></ion-col>
         <ion-col sizeMd="2">
-          <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+          <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?('btn.modify' | translate):('btn.add' | translate)}}</ion-button>
         </ion-col>
         <ion-col sizeMd="5"></ion-col>
       </ion-row>

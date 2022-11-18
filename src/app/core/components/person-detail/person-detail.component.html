@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Datos de la persona</ion-title>
+    <ion-title>{{'person.dataPerson' | translate}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="onDismiss(null)" color="danger">Cerrar</ion-button>
+      <ion-button (click)="onDismiss(null)" color="danger">{{"btn.close" | translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -10,31 +10,31 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
     <ion-item>
       <ion-label position="floating">
-        Nombre
+        {{'person.name' | translate}}
       </ion-label>
       <ion-input type="text" placeholder="Introduce tu nombre" formControlName="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">
-        Description
+        {{'person.desc' | translate}}
       </ion-label>
       <ion-input type="text" placeholder="Introduce tus apellidos" formControlName="description"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">
-        Nickname
+        {{'person.nickName' | translate}}
       </ion-label>
       <ion-input type="text" placeholder="Introduce tu apodo" formControlName="nickname"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">
-        Edad
+        {{'person.age' | translate}}
       </ion-label>
       <ion-input type="number" placeholder="Introduce tu edad" formControlName="age"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">
-        URL
+        {{'person.URL' | translate}}
       </ion-label>
       <ion-input type="text" placeholder="Introduce tu url" formControlName="url"></ion-input>
     </ion-item>
@@ -43,7 +43,7 @@
       <ion-row>
         <ion-col sizeMd="5"></ion-col>
         <ion-col sizeMd="2">
-          <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+          <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?('btn.modify' | translate):('btn.add' | translate)}}</ion-button>
         </ion-col>
         <ion-col sizeMd="5"></ion-col>
       </ion-row>

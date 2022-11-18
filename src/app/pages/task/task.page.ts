@@ -4,6 +4,8 @@ import { TaskService } from 'src/app/core/services/task.service';
 import { Task } from 'src/app/core/models/task';
 
 import { TaskDetailComponent } from '../../core/components/task-detail/task-detail.component';
+import { lastValueFrom } from 'rxjs';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-task',
@@ -13,7 +15,7 @@ import { TaskDetailComponent } from '../../core/components/task-detail/task-deta
 export class TaskPage implements OnInit {
 
   list: Task[];
-  constructor(private taskService : TaskService,private modal : ModalController,private alert:AlertController) { }
+  constructor(private taskService : TaskService,private modal : ModalController,private alert:AlertController,private translate: TranslateService) { }
 
   ngOnInit() {}
 
@@ -61,17 +63,18 @@ export class TaskPage implements OnInit {
 
   async onDeleteAlert(param){
     const alert = await this.alert.create({
-      header: '¿Está seguro de que desear borrar a la tarea?',
+      //header: '',
+      header:  await lastValueFrom(this.translate.get('modal_delete.task_header')),
       buttons: [
         {
-          text: 'Cancelar',
+          text: await lastValueFrom(this.translate.get('modal_delete.cancell')),
           role: 'cancel',
           handler: () => {
             console.log("Operacion cancelada");
           },
         },
         {
-          text: 'Borrar',
+          text: await lastValueFrom(this.translate.get('modal_delete.acept')),
           role: 'confirm',
           handler: () => {
             this.taskService.deleteTask(param.id);

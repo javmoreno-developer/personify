@@ -13,15 +13,15 @@
     <ion-grid>
       <ion-row>
         <ion-col sizeMd="5" size="12">
-          <ion-text>Descripcion: {{task.description}}</ion-text>
+          <ion-text>{{"task.desc" | translate }} {{task.description}}</ion-text>
           <br><br>
-          <ion-text>Date: {{task.date}} </ion-text> 
+          <ion-text>{{"task.date" | translate}} {{task.date}} </ion-text> 
         </ion-col>
        
         <ion-col sizeMd="4" size="12" offset-md="3">
           <div id="btn_hidden">
-            <ion-button (click)="onEditTask()">Editar</ion-button>
-            <ion-button  (click)="onDeleteTask()" color="danger">Borrar</ion-button>
+            <ion-button (click)="onEditTask()">{{"crud.edit" | translate}}</ion-button>
+            <ion-button  (click)="onDeleteTask()" color="danger">{{'crud.delete' | translate}}</ion-button>
           </div>
         </ion-col>
       </ion-row>

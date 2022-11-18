@@ -23,7 +23,7 @@ export class DateTimeSelectableComponent implements OnInit,ControlValueAccessor 
   isDisabled:boolean = false;
   selectedDateTime = "";
 
-  private dateTimeSubject = new BehaviorSubject(moment().toISOString());
+  private dateTimeSubject = new BehaviorSubject(this.formatDate(moment()));
   public dateTime$ = this.dateTimeSubject.asObservable();
 
 
@@ -33,7 +33,8 @@ export class DateTimeSelectableComponent implements OnInit,ControlValueAccessor 
   writeValue(obj: any): void {
     this.selectedDateTime = obj;
     if(this.selectedDateTime) {
-      this.dateTimeSubject.next(this.selectedDateTime);
+      //this.dateTimeSubject.next(this.formatDate(moment(this.selectedDateTime)));
+      this.dateTimeSubject.next(this.formatDate(moment(obj)));
       this.cd.detectChanges();
     }
   }
@@ -46,7 +47,9 @@ export class DateTimeSelectableComponent implements OnInit,ControlValueAccessor 
     this.isDisabled = isDisabled;
   }
 
-  
+  formatDate(date:moment.Moment) {
+    return date.format("YYYY-MM-DDTHH:mmZ");
+  }
 
   ngOnInit() {}
 
@@ -55,12 +58,13 @@ export class DateTimeSelectableComponent implements OnInit,ControlValueAccessor 
   }
 
   onChangeDate(event, accordion) {
-    console.log("cambio")
-    this.selectedDateTime = event.detail.value;
-    this.closeAccordion(accordion);
-    this.propagateChange(this.selectedDateTime);
-    console.log(this.selectedDateTime);
-    this.cd.detectChanges();
+    setTimeout(()=> {
+      this.selectedDateTime = event.detail.value;
+      this.closeAccordion(accordion);
+      this.propagateChange(this.selectedDateTime);
+      this.cd.detectChanges();
+    },100);
+    
    }
 
   updateDate(dateTime:IonDatetime, accordion:IonAccordionGroup) {

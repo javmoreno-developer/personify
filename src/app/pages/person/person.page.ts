@@ -6,6 +6,9 @@ import { Person } from 'src/app/core/models/person';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PersonDetailComponent } from '../../core/components/person-detail/person-detail.component';
 import { AssignmentService, PersonService } from 'src/app/core/services';
+import { TranslateService } from '@ngx-translate/core';
+import { lastValueFrom } from 'rxjs';
+
 
 
 @Component({
@@ -27,7 +30,9 @@ export class PersonPage implements OnInit {
   
   nameEdit : string;
 
-  constructor(private personService : PersonService,private fb : FormBuilder, private modal:ModalController,private assignService: AssignmentService, private alert:AlertController,private toastController : ToastController) {}
+  constructor(private personService : PersonService,private fb : FormBuilder, private modal:ModalController,private assignService: AssignmentService, private alert:AlertController,private toastController : ToastController, private translate: TranslateService) {
+
+  }
 
 
   
@@ -87,17 +92,19 @@ export class PersonPage implements OnInit {
 
   async onDeleteAlert(person){
     const alert = await this.alert.create({
-      header: '¿Está seguro de que desear borrar a la persona?',
+      //await lastValueFrom(this.translate.get('assignment.edit'));
+      //header: '¿Está seguro de que desear borrar a la persona?',
+      header: await lastValueFrom(this.translate.get('modal_delete.header')),
       buttons: [
         {
-          text: 'Cancelar',
+          text: await lastValueFrom(this.translate.get('modal_delete.cancell')),
           role: 'cancel',
           handler: () => {
             console.log("Operacion cancelada");
           },
         },
         {
-          text: 'Borrar',
+          text: await lastValueFrom(this.translate.get('modal_delete.acept')),
           role: 'confirm',
           handler: () => {
             let r = this.assignService.getAllDateById(person.id);
@@ -120,7 +127,7 @@ export class PersonPage implements OnInit {
  
   async presentToast(position: 'top' | 'middle' | 'bottom') {
     const toast = await this.toastController.create({
-      message: 'Esta persona tiene asignadas tareas,no puedes borrarla',
+      message: await lastValueFrom(this.translate.get('modal_delete.exception')),
       duration: 2500,
       position: position
     });

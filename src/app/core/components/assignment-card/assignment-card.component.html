@@ -24,8 +24,8 @@
           <ion-text>
             {{assign.createdAt}}
           </ion-text>
-          <ion-button (click)="promptEdit()">Editar</ion-button>
-          <ion-button color="danger" (click)="promptDelete()">Borrar</ion-button>
+          <ion-button (click)="promptEdit()">{{"crud.edit" | translate}}</ion-button>
+          <ion-button color="danger" (click)="promptDelete()">{{"crud.delete" | translate}}</ion-button>
         </ion-col>
         <ion-col></ion-col>
       </ion-row>

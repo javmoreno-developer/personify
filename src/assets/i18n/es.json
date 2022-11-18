@@ -1,0 +1,59 @@
+{
+    "btn": {
+        "modify": "modificar",
+        "add": "añadir",
+        "close": "Cerrar",
+        "reset": "resetear",
+        "idiom": "Cambiar el idioma"
+    },
+    "modal_delete": {
+        "header": "¿Está seguro de que desear borrar a la persona?",
+        "cancell": "Cancelar",
+        "acept": "Aceptar",
+        "exception": "Esta persona tiene asignadas tareas,no puedes borrarla",
+        "task_header": "¿Está seguro de que desear borrar la tarea?",
+        "assign_header": "¿Está seguro de que desear borrar la relacion?"
+    },
+    
+    
+    "crud": {
+        "edit": "editar",
+        "create" : "crear",
+        "delete": "borrar",
+        "update": "actualizar"
+    },
+    "home": {
+        "title": "Personify,tu app",
+        "intro": "Bienvenido a Personify"
+    },
+    "person": {
+        "title": "Lista de personas",
+        "nickName": "Nombre de usuario:",
+        "desc": "Descripcion:",
+        "age": "Edad:",
+        "dataPerson": "Datos de la persona",
+        "name": "Nombre: ",
+        "URL": "URL: "
+    },
+    "sidemenu": {
+        "Person": "Personas",
+        "Task": "Tareas",
+        "Assign": "Asignaciones",
+        "Home": "Inicio"
+    },
+    "task": {
+        "title": "Lista de tareas",
+        "desc": "Descripcion:",
+        "date": "Fecha:",
+        "taskData": "Datos de la tarea",
+        "name": "Nombre: ",
+        "URL": "URL: "
+    },
+    "assign" : {
+        "title": "Lista de asignaciones",
+        "assignData": "Datos de la asignacion",
+        "person_selectable_title": "Selecciona una persona",
+        "task_selectable_title": "Selecciona una tarea",
+        "date_selectable_title": "Selecciona una hora"
+    }
+}

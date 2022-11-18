@@ -27,16 +27,16 @@
     <ion-grid>
       <ion-row>
         <ion-col sizeMd="4" size="12">
-          <ion-text>Nickname: {{dataPerson.nickname}}</ion-text> <br>
-          <ion-text>Edad: {{dataPerson.age}}</ion-text>
+          <ion-text>{{'person.nickName' | translate}} {{dataPerson.nickname}}</ion-text> <br>
+          <ion-text>{{'person.desc' | translate}} {{dataPerson.age}}</ion-text>
         </ion-col>
         <ion-col sizeMd="4" size="12">
-          <ion-text>Descripcion: {{dataPerson.description}}</ion-text>
+          <ion-text>{{'person.desc'}} {{dataPerson.description}}</ion-text>
         </ion-col>
         <ion-col sizeMd="4" size="12">
           <div id="btn_hidden">
-            <ion-button (click)="promptEdit()">Editar</ion-button>
-            <ion-button (click)="promptDelete()" color="danger">Borrar</ion-button>
+            <ion-button (click)="promptEdit()">{{'crud.edit' | translate}}</ion-button>
+            <ion-button (click)="promptDelete()" color="danger">{{'crud.delete' | translate}}</ion-button>
           </div>
         </ion-col>
       </ion-row>

@@ -1,5 +1,7 @@
 import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AlertController, ModalController } from '@ionic/angular';
+import { TranslateService } from '@ngx-translate/core';
+import { lastValueFrom } from 'rxjs';
 import { Assignment } from 'src/app/core/models/assignment';
 import { AssignmentService } from 'src/app/core/services/assignment.service';
 import { AssignmentDetailComponent } from '../../core/components/assignment-detail/assignment-detail.component';
@@ -12,7 +14,7 @@ import { AssignmentDetailComponent } from '../../core/components/assignment-deta
 export class AssignPage implements OnInit {
 
   lista : Assignment[];
-  constructor( private assignSvc: AssignmentService,private alert:AlertController,private modal:ModalController) {}
+  constructor( private assignSvc: AssignmentService,private alert:AlertController,private modal:ModalController,private translate: TranslateService) {}
 
   ngOnInit() {
   }
@@ -27,17 +29,17 @@ export class AssignPage implements OnInit {
 
   async onDeleteAlert(param){
     const alert = await this.alert.create({
-      header: '¿Está seguro de que desear borrar la relacion?',
+      header: await lastValueFrom(this.translate.get('modal_delete.assign_header')),
       buttons: [
         {
-          text: 'Cancelar',
+          text: await lastValueFrom(this.translate.get('modal_delete.cancell')),
           role: 'cancel',
           handler: () => {
             console.log("Operacion cancelada");
           },
         },
         {
-          text: 'Borrar',
+          text: await lastValueFrom(this.translate.get('modal_delete.acept')),
           role: 'confirm',
           handler: () => {
             

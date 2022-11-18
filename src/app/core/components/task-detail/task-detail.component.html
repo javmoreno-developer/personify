@@ -1,8 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Datos de la tarea</ion-title>
+    <ion-title>{{"task.taskData" | translate}}</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="onDismiss(null)" color="danger">Cerrar</ion-button>
+      <ion-button (click)="onDismiss(null)" color="danger">{{"btn.close" | translate}}</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -10,27 +10,27 @@
   <form [formGroup]="form" (ngSubmit)="onSubmit()" (keyup.enter)="onSubmit()">
     <ion-item>
       <ion-label position="floating">
-        Nombre
+        {{"task.name" | translate}}
       </ion-label>
       <ion-input type="text" placeholder="Introduce el nombre de la tarea" formControlName="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">
-        Description
+        {{"task.desc" | translate}}
       </ion-label>
       <ion-input type="text" placeholder="Introduce la descripcion de la tarea" formControlName="description"></ion-input>
     </ion-item>
    
     <ion-item>
       <ion-label position="floating">
-        URL
+        {{"task.URL" | translate}}
       </ion-label>
       <ion-input type="text" placeholder="Introduce la url de la tarea" formControlName="url"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">
-        Date
+        {{"task.date" | translate}}
       </ion-label>
       <ion-input type="text" placeholder="Introduce el tiempo en segundos de la tarea" formControlName="date"></ion-input>
     </ion-item>
@@ -39,7 +39,7 @@
       <ion-row>
         <ion-col sizeMd="5"></ion-col>
         <ion-col sizeMd="2">
-          <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?"Modificar":"Añadir"}}</ion-button>
+          <ion-button [disabled]="!form.valid" type="submit">{{mode=="Edit"?('btn.modify' | translate):('btn.add' | translate)}}</ion-button>
         </ion-col>
         <ion-col sizeMd="5"></ion-col>
       </ion-row>

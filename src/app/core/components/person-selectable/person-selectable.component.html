@@ -10,7 +10,7 @@
         &nbsp;
         <ion-label>{{selectedPerson?.nickname}}, {{selectedPerson?.name}}</ion-label>
       </ng-container>
-      <ion-label *ngIf="!selectedPerson">Selecciona una persona</ion-label>
+      <ion-label *ngIf="!selectedPerson">{{"assign.person_selectable_title" | translate}}</ion-label>
     </ion-item>
     <div class="ion-padding" slot="content">
       <ion-list>

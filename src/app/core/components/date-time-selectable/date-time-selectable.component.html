@@ -5,15 +5,15 @@
        
         <ion-label>{{selectedDateTime}}</ion-label>
       </ng-container>
-      <ion-label *ngIf="!selectedDateTime">Selecciona una hora</ion-label>
+      <ion-label *ngIf="!selectedDateTime">{{"assign.date_selectable_title" | translate}}</ion-label>
     </ion-item>
     <div class="ion-padding" slot="content">
       
-        <ion-datetime  #datetime id="datetime"  (ionChange)="onChangeDate($event,accordion)">
+        <ion-datetime  #datetime id="datetime" value="{{dateTime$ | async}}" (ionChange)="onChangeDate($event,accordion)">
           <ion-buttons slot="buttons">
-            <ion-button color="danger" (click)="datetime.reset()">Reset</ion-button>
-            <ion-button color="primary" (click)="closeAccordion(accordion)">Cancelar</ion-button>
-            <ion-button color="primary" (click)="updateDate(datetime, accordion)">Aceptar</ion-button>
+            <ion-button color="danger" (click)="datetime.reset()">{{"btn.reset" | translate}}</ion-button>
+            <ion-button color="primary" (click)="closeAccordion(accordion)">{{"modal_delete.cancell" | translate}}</ion-button>
+            <ion-button color="primary" (click)="updateDate(datetime, accordion)">{{"modal_delete.acept" | translate}}</ion-button>
           </ion-buttons>
         </ion-datetime>
       
